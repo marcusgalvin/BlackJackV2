@@ -3,21 +3,21 @@ public class User {
 	
 	private String name;
 	private int balance;
-	private Deck userHand;
+	private Deck playerHand;
 	
-	public User(String name, int balance, Deck userHand) {
+	public User(String name, int balance, Deck playerHand) {
 		this.name = name;
 		this.balance = balance;
-		this.userHand = userHand;
+		this.playerHand = playerHand;
 	}
 
-	private Deck buildUserHand() {
-		Deck userHand = new Deck();
-		return userHand;		
+	private Deck buildHand() {
+		Deck playerHand = new Deck();
+		return playerHand;		
 	}
 	
-	public Deck getUserHand() {
-		return this.userHand;
+	public Deck getHand() {
+		return this.playerHand;
 	}
 	
 	public int getBalance() {

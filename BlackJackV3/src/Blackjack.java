@@ -15,9 +15,7 @@ public class Blackjack {
 		//dealer hand
 		Deck dealerHand = new Deck();
 		
-		User userOne = new User("Marcus", 500, playerHand);
-
-		
+		User userOne = new User("Marcus", 500, playerHand);	
 		int playerBalance = userOne.getBalance();
 		
 		Scanner userInput = new Scanner(System.in);
@@ -25,7 +23,7 @@ public class Blackjack {
 		//game loop as long as player has cash in acc
 		while(playerBalance > 0) {
 			System.out.println("Balance " + playerBalance + "\n" + "Enter bet amount: ");
-			double playerBet = userInput.nextInt();
+			int playerBet = userInput.nextInt();
 			if(playerBet > playerBalance) {
 				System.out.println("Insufficient Funds!");
 				break;
@@ -70,8 +68,6 @@ public class Blackjack {
 				}
 			}
 			
-			//reveal dealer card
-			System.out.println("Dealer's Cards " + dealerHand.toString());
 			
 			if(dealerHand.cardsValue() > playerHand.cardsValue() && endCurrentRound == false) {
 				System.out.println("Dealer Wins");
@@ -99,7 +95,7 @@ public class Blackjack {
 				endCurrentRound = true;
 			}
 			
-			//player win
+			//player blackjack
 			if(playerHand.cardsValue() == 21) {
 				System.out.println("BLACKJACK! You Win");
 				playerBet += playerBalance;
@@ -110,6 +106,13 @@ public class Blackjack {
 			if(playerHand.cardsValue() > dealerHand.cardsValue() && endCurrentRound == false) {
 				System.out.println("You win!");
 				playerBalance += playerBet;
+				endCurrentRound = true;
+			}
+			
+			//dealer blackjack
+			if(dealerHand.cardsValue() == 21 && endCurrentRound == false) {
+				System.out.println("Dealer hit BlackJack, You Lose");
+				playerBalance -= playerBet;
 				endCurrentRound = true;
 			}
 			

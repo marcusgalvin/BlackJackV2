@@ -8,16 +8,16 @@ public class Dealer {
 		this.dealerHand = dealerHand;		
 	}
 	
-	private Deck buildDealerHand() {
+	private Deck buildHand() {
 		Deck dealerHand = new Deck();
 		return dealerHand;
 	}
 	
-	public Deck getDealerHand() {
-		return this.dealerHand()
+	public Deck getHand() {
+		return this.dealerHand;
 	}
 	
-	public Deck getDealerName() {
+	public String getName() {
 		return this.name;
 	}
 
