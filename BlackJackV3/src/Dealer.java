@@ -14,7 +14,7 @@ public class Dealer {
 	}
 	
 	public Deck getDealerHand() {
-		return this.dealerHand();
+		return this.dealerHand()
 	}
 	
 	public Deck getDealerName() {
