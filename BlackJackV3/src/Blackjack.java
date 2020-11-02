@@ -16,6 +16,8 @@ public class Blackjack {
 		Deck dealerHand = new Deck();
 		
 		User userOne = new User("Marcus", 500, playerHand);	
+		Dealer dealerOne = new Dealer("Dealer Jimmy", dealerHand);
+		
 		int playerBalance = userOne.getBalance();
 		
 		Scanner userInput = new Scanner(System.in);
@@ -23,6 +25,7 @@ public class Blackjack {
 		//game loop as long as player has cash in acc
 		while(playerBalance > 0) {
 			System.out.println("Balance " + playerBalance + "\n" + "Enter bet amount: ");
+			
 			int playerBet = userInput.nextInt();
 			if(playerBet > playerBalance) {
 				System.out.println("Insufficient Funds!");
@@ -42,7 +45,7 @@ public class Blackjack {
 			
 			while(true) {
 				System.out.println(userOne.getName() + "'s hand: " + playerHand.toString());
-				System.out.println("Your hand's Value: " + playerHand.cardsValue());
+				System.out.println("Your hand's Value: " + userOne.getHandValue());
 				
 				//dealer
 				System.out.println("Dealer's Hand: " + dealerHand.getCard(0).toString() + " and " +  "[UpsideDown Card]");
@@ -100,30 +103,29 @@ public class Blackjack {
 				System.out.println("BLACKJACK! You Win");
 				playerBet += playerBalance;
 				endCurrentRound = true;
-				break;
 			}
 			
 			if(playerHand.cardsValue() > dealerHand.cardsValue() && endCurrentRound == false) {
-				System.out.println("You win!");
+				System.out.println("You win, you beat the dealer!");
 				playerBalance += playerBet;
 				endCurrentRound = true;
 			}
 			
 			//dealer blackjack
 			if(dealerHand.cardsValue() == 21 && endCurrentRound == false) {
-				System.out.println("Dealer hit BlackJack, You Lose");
+				System.out.println("Dealer hit BlackJack, You Lose!");
 				playerBalance -= playerBet;
 				endCurrentRound = true;
 			}
 			
-			//move cards back into deck and shuffle from player and dealer
+			//move cards back into deck
 			playerHand.dealerCollectCards(gameDeck);
 			dealerHand.dealerCollectCards(gameDeck);
 			System.out.println("Round Complete");
 
 			
 		}
-		System.out.println("You got Cleaned!");
+		System.out.println("GAME OVER: You got Cleaned!");
 		
 		
 //		System.out.println(playingDeck);

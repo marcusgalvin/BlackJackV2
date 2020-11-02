@@ -1,5 +1,7 @@
 
 public interface Users {
 
-	public void buildHand();
+	public Deck buildHand();
+	public String getName();
+	
 }

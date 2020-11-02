@@ -34,7 +34,7 @@ public class Deck {
 		String allCards = "";
 		//counter
 		for(Card aCard : this.cards) {
-			allCards += "\n" + aCard.toString();
+			allCards += aCard.toString();
 		}
 		return allCards;
 	}
@@ -73,7 +73,7 @@ public class Deck {
 		}
 	}
 	
-	//return total value cards in deck to get ace value
+	//return total value cards in deck and get ace value if value is over 10
 	public int cardsValue() {
 		int totalValue = 0;
 		int aces = 0;
