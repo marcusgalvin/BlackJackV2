@@ -16,7 +16,7 @@ public class Blackjack {
 		Deck dealerHand = new Deck();
 		
 		User userOne = new User("Marcus", 500, playerHand);	
-		Dealer dealerOne = new Dealer("Dealer Jimmy", dealerHand);
+		Dealer dealerOne = new Dealer("Dealer Jim", dealerHand);
 		
 		int playerBalance = userOne.getBalance();
 		
@@ -48,7 +48,7 @@ public class Blackjack {
 				System.out.println("Your hand's Value: " + userOne.getHandValue());
 				
 				//dealer
-				System.out.println("Dealer's Hand: " + dealerHand.getCard(0).toString() + " and " +  "[UpsideDown Card]");
+				System.out.println(dealerOne.getName() + "'s Hand: " + dealerHand.getCard(0).toString() + " and " +  "[UpsideDown Card]");
 				
 				//player actions
 				System.out.println("Press 1 to hit, Press 2 to stay");
