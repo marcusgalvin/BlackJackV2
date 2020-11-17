@@ -16,6 +16,7 @@ public class Blackjack {
 		Deck dealerHand = new Deck();
 		
 		User userOne = new User("Marcus", 500, playerHand);	
+		User userTwo = new User("Jim", 500, playerHand);
 		Dealer dealerOne = new Dealer("Dealer Jim", dealerHand);
 		
 		int playerBalance = userOne.getBalance();
